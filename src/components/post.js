@@ -22,7 +22,7 @@ componentWillMount() {
     const postItems = this.state.posts.map ( post =>
 
       <div key={post.id}>
-        <h3>{post.title.toUpperCase()}</h3>
+        <h3 style={{fontSize: '25px'}}>{post.title}</h3>
         <p>{post.body}</p>
       </div>
     )
