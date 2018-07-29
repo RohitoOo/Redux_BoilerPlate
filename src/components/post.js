@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux' ;
+import { fetchPosts } from '../actions/postActions'
 
 class Posts extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      posts: []
-    }
-  }
 
 componentWillMount() {
-  fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(res => res.json())
-  .then(console.log('mounted'))
-  .then(data => this.setState ({ posts : data}));
-
+  this.props.fetchPosts();
 }
-
 
   render() {
     const postItems = this.state.posts.map ( post =>
@@ -36,4 +27,4 @@ componentWillMount() {
 
 }
 
-export default Posts;
+export default connect(null, {fetchPosts})(Posts);

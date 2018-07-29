@@ -4,11 +4,15 @@ import {FETCH_POSTS, NEW_POST} from '../actions/types'
 const initialState = {
 items : [],
 item : {}
-}
+};
 
 export default function( state = initialState, action ) {
   switch(action.type){
-    default :
-      return state;
+    case FETCH_POSTS:
+    console.log('Fetching Reducers')
+      return {
+        ...state,
+        items: action.payload
+      }
   }
 }
