@@ -10,7 +10,7 @@ componentWillMount() {
 }
 
   render() {
-    const postItems = this.state.posts.map ( post =>
+    const postItems = this.props.posts.map ( post =>
 
       <div key={post.id}>
         <h3 style={{fontSize: '25px'}}>{post.title}</h3>
@@ -27,4 +27,9 @@ componentWillMount() {
 
 }
 
-export default connect(null, {fetchPosts})(Posts);
+
+const mapStateToProps = state => ({
+  posts : state.posts.items
+})
+
+export default connect(mapStateToProps, {fetchPosts})(Posts);
